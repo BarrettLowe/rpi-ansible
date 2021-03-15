@@ -36,6 +36,17 @@
   with_items: "{{ create_users }}"
   tags: [ 'users' ]
 
+- name: make users passwordless sudoer
+  lineinfile:
+    dest: /etc/sudoers
+    state: "{{ \"present\" if free_sudo else \"absent\" }}"
+    #state: present
+    regexp: ^{{ item.name }}
+    line: '{{ item.name }} ALL=(ALL) NOPASSWD: ALL'
+    validate: 'visudo -cf %s'
+  with_items: "{{ create_users }}"
+  tags: [ 'users' ]
+
 ### disable the 'pi' user's ability to login in with password
 ### if you enable this, you may lock yourself out--you must make sure another
 ### user has been added with both sudo privileges and a password by which

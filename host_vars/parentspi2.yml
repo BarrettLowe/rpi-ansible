@@ -1,0 +1,22 @@
+---
+raspi_hostname: "parentspi2"
+raspi_domain: "local"
+raspi_locale: "en_US.UTF-8"
+raspi_timezone: "America/Chicago"
+xkblayout: "us"
+wifi_country: "US"
+enable_gui: False
+enable_autologin: False
+enable_bootwait: False
+enable_bootsplash: False
+enable_camera: False
+enable_vnc: False
+enable_spi: False
+enable_i2c: False
+enable_serial: True
+enable_serial_hw: False
+enable_onewire: False
+enable_rgpio: False
+free_sudo: True
+host_software:
+  - python3-pip
